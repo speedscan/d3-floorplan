@@ -1,10 +1,7 @@
 <html><head>
 <meta charset="utf-8">
 <title>Floor Plan - local coordinate map layers for D3.js</title>
-<!-- <script type="text/javascript" src="lib/jquery/jquery-1.7.2.min.js"></script> -->
-<!-- <script type="text/javascript" src="lib/jquery/jquery-ui-1.8.21.custom.min.js"></script> -->
 <script  src="https://d3js.org/d3.v2.min.js"></script>
-<!-- <script type="text/javascript" src="lib/d3/d3.v2.min.js"></script> -->
 <script type="text/javascript" src="d3.floorplan.min.js"></script>
 <style type="text/css">
 	/* @import url('lib/jquery/jquery-ui.css'); */
@@ -39,7 +36,6 @@
 </head>
 <body>
 <div id="demo"></div>
-
 <script id="demo-code" type="text/javascript">
     
     var xscale = d3.scale.linear()
@@ -50,9 +46,6 @@
                .range([0,874]),
     map = d3.floorplan().xScale(xscale).yScale(yscale),
     imagelayer = d3.floorplan.imagelayer(),
-    // heatmap = d3.floorplan.heatmap(),
-    // vectorfield = d3.floorplan.vectorfield(),
-    // pathplot = d3.floorplan.pathplot(),
     overlays = d3.floorplan.overlays().editMode(false),
     mapdata = {};
     console.log(xscale);
@@ -65,22 +58,14 @@ mapdata[imagelayer.id()] = [{
      }];
 
 map.addLayer(imagelayer)
-//    .addLayer(heatmap)
-//    .addLayer(vectorfield)
-//    .addLayer(pathplot)
    .addLayer(overlays);
-   
 
 d3.json("demo-data.json", function(data) {
-	// mapdata[heatmap.id()] = data.heatmap;
 	mapdata[overlays.id()] = data.zone;
-	// mapdata[vectorfield.id()] = data.vectorfield;
-	// mapdata[pathplot.id()] = data.pathplot;
-	
 	d3.select("#demo").append("svg")
 		.attr("height", 874).attr("width",920)
 		.datum(mapdata).call(map);
 });
 
-
 </script>
+

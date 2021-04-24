@@ -13,9 +13,11 @@
 .RdYlBu .d6-1 {fill:#4575B4;background:#4575B4;color:#121212}
 
 /* overlays */
-.polygon {stroke:white;stroke-width:0px;fill-opacity:0.5;fill:#00ff80}
+.polygon {stroke:white;stroke-width:0px;fill-opacity:0.5;fill:#f00}
 .vertex {stroke:lime;stroke-width:2px;fill:none}
-
+/* overlays */
+.U008 {stroke:white;stroke-width:0px;fill-opacity:0.5;fill:rgb(72, 255, 0)}
+.vertex {stroke:lime;stroke-width:2px;fill:none}
 /* vector field */
 .vector {stroke-width:1px;stroke:lightsteelblue}
 
